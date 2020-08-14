@@ -30,13 +30,12 @@ pipeline {
         }
         stage('Test OOPS') {
             agent {
-                docker { image 'tboonx/oops_caller:debug'
+                docker { image 'tboonx/oops_caller:0.3'
                     args '--entrypoint=""'}
             }
             steps {
                 sh '/bin/sh /script.sh MatVoc-Core'
                 sh 'cp result.xml oops_result.xml'
-                sh 'cat oops_result.xml'
             }
         }
         stage('Interprete reports') {

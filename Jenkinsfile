@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Test OOPS') {
             agent {
-                docker { image 'tboonx/oops_caller:0.3'
+                docker { image 'tboonx/oops_caller:debug'
                     args '--entrypoint=""'}
             }
             steps {
